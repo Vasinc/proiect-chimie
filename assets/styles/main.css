@@ -11,5 +11,37 @@ body {
           box-sizing: border-box;
   font-size: 100%;
   font-family: 'Rubik', sans-serif;
+  height: 4000px;
+  overflow-x: hidden;
+}
+
+header {
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  background: url("/images/background.jpg");
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  bottom: -6rem;
+  width: 100%;
+  height: 6rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(black), color-stop(95%, transparent));
+  background: linear-gradient(black, transparent 95%);
+}
+
+header img {
+  width: 50%;
+  max-width: 550px;
+  aspect-ratio: 1 / 1;
+  background: rgba(31, 153, 214, 0.4);
+  -webkit-box-shadow: 0 0 16px 16px rgba(31, 153, 214, 0.2);
+          box-shadow: 0 0 16px 16px rgba(31, 153, 214, 0.2);
+  border-radius: 50%;
 }
 /*# sourceMappingURL=main.css.map */

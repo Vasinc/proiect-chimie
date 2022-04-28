@@ -14,4 +14,30 @@ body
     box-sizing: border-box
     font-size: 100%
     font-family: 'Rubik', sans-serif
+    height: 4000px
+    overflow-x: hidden
 
+header
+    display: grid
+    position: relative
+    place-items: center
+    width: 100%
+    height: 100vh
+    background: url("/images/background.jpg")
+    // background-attachment: fixed
+    &::before
+        content: ''
+        position: absolute
+        bottom: -6rem
+        width: 100%
+        height: 6rem
+        background: linear-gradient(rgb(0, 0, 0), transparent 95%)
+    img
+        width: 50%
+        max-width: 550px
+        aspect-ratio: 1 / 1
+        background: rgba(31, 153, 214, .4)
+        box-shadow: 0 0 16px 16px rgba(31, 153, 214, .2)
+        border-radius: 50%
+        
+        
