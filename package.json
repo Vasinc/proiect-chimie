@@ -1,0 +1,19 @@
+{
+  "name": "proiect-chimie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vasinc/proiect-chimie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vasinc/proiect-chimie/issues"
+  },
+  "homepage": "https://github.com/Vasinc/proiect-chimie#readme"
+}

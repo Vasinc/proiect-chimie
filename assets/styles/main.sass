@@ -8,6 +8,16 @@ $purple: #9816d6
 $green: #51ce65
 $light-green: #1af9a3
 
+// classes
+.show-card__child
+    opacity: 1 !important
+
+.show-heading
+    transform: translateY(0) !important
+
+.show-lines
+    width: 100% !important
+
 
 // resets
 *, *::before, *::after
@@ -19,7 +29,7 @@ body
     box-sizing: border-box
     font-size: 100%
     font-family: 'Rubik', sans-serif
-    height: 4000px
+    // height: 4000px
     overflow-x: hidden
 
 header
@@ -56,12 +66,15 @@ header
         h1
             font-size: 7rem
             font-weight: 400
+            transition: transform 700ms ease-out
+            transform: translateY(7rem)
             
     .growing-line
         height: 2px
-        width: 100%
+        width: 0%
         max-width: 1028px
         background: black
+        transition: linear 800ms
     .cards
         display: flex
         flex-direction: column
@@ -87,6 +100,32 @@ header
                 gap: 5rem
                 width: 70%
                 padding-left: 2rem
+                text-align: center
+                .card-interescting
+                    opacity: 0
+                    transition: opacity 200ms linear
+                h2
+                    font-size: 2rem
+                    text-decoration: underline
+                p
+                    max-width: 30ch
+                    margin-left: 50%
+                    transform: translateX(-50%)
+                .custom-btn
+                    padding: .5rem 1rem
+                    width: 200px
+                    height: 3rem
+                    margin-left: 50%
+                    transform: translateX(-50%)
+                    background: lighten($light-blue, 30%)
+                    border-radius: .1rem
+                    font-size: 1.25rem
+                    cursor: pointer
+                    transition: ease-in 300ms
+                    text-decoration: none
+                    color: black
+                    &:hover
+                        box-shadow: inset 200px 0 0 0 $light-blue
         .card:nth-of-type(1)
             .card-image__section
                 &::after
@@ -131,3 +170,74 @@ header
                     bottom: 0
                     background: $green
                     opacity: .8
+        .d-card
+            display: grid
+            place-items: center
+            height: 14rem
+            background: url('/images/3dchemistry.jpg');
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
+            filter: grayscale(90%)
+            a
+                filter: grayscale(0)
+                text-decoration: none
+                color: white
+                background: black
+                font-weight: 700
+                font-size: 1.15rem
+                border: 2px solid black
+                border-radius: .2rem
+                padding: 1rem 4rem
+                transition: 200ms linear
+                &:hover
+                    color: black
+                    box-shadow: inset 155px 0 0 0 white
+        .p-card
+            display: grid
+            place-items: center
+            height: 14rem
+            background: url('/images/playground.jpg');
+            background-repeat: no-repeat
+            background-size: cover
+            background-position: center
+            filter: contrast(150%)
+            a
+                color: white
+                background: red
+                padding: 1rem 4rem
+                font-size: 1.15rem
+                font-weight: 700
+                border-radius: .2rem
+                transition: 300ms linear
+                cursor: pointer
+                &:hover
+                    box-shadow: inset 232px 0 0 0 yellow
+
+footer
+    display: flex
+    justify-content: space-around
+    padding: 4rem
+    background: black
+    color: white
+    p
+        a
+            text-decoration: none
+            color: $light-blue
+            font-weight: 700
+            font-size: 1.15rem
+    ul
+        position: relative
+        list-style: none
+        &::before
+            content: 'Echipa 4:'
+            position: absolute
+            top: 0
+            left: -5rem
+        li  
+            font-size: 1.05rem
+            cursor: default
+    ul:last-of-type
+        &::before
+            content: 'Surse:'
+            left: -4rem

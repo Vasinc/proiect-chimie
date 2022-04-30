@@ -1,4 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+.show-card__child {
+  opacity: 1 !important;
+}
+
+.show-heading {
+  -webkit-transform: translateY(0) !important;
+          transform: translateY(0) !important;
+}
+
+.show-lines {
+  width: 100% !important;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -11,7 +24,6 @@ body {
           box-sizing: border-box;
   font-size: 100%;
   font-family: 'Rubik', sans-serif;
-  height: 4000px;
   overflow-x: hidden;
 }
 
@@ -65,13 +77,21 @@ header img {
 .cards-section .cards-heading h1 {
   font-size: 7rem;
   font-weight: 400;
+  -webkit-transition: -webkit-transform 700ms ease-out;
+  transition: -webkit-transform 700ms ease-out;
+  transition: transform 700ms ease-out;
+  transition: transform 700ms ease-out, -webkit-transform 700ms ease-out;
+  -webkit-transform: translateY(7rem);
+          transform: translateY(7rem);
 }
 
 .cards-section .growing-line {
   height: 2px;
-  width: 100%;
+  width: 0%;
   max-width: 1028px;
   background: black;
+  -webkit-transition: linear 800ms;
+  transition: linear 800ms;
 }
 
 .cards-section .cards {
@@ -121,6 +141,47 @@ header img {
   gap: 5rem;
   width: 70%;
   padding-left: 2rem;
+  text-align: center;
+}
+
+.cards-section .cards .card .card-text__section .card-interescting {
+  opacity: 0;
+  -webkit-transition: opacity 200ms linear;
+  transition: opacity 200ms linear;
+}
+
+.cards-section .cards .card .card-text__section h2 {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.cards-section .cards .card .card-text__section p {
+  max-width: 30ch;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.cards-section .cards .card .card-text__section .custom-btn {
+  padding: .5rem 1rem;
+  width: 200px;
+  height: 3rem;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #9dd5f1;
+  border-radius: .1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  -webkit-transition: ease-in 300ms;
+  transition: ease-in 300ms;
+  text-decoration: none;
+  color: black;
+}
+
+.cards-section .cards .card .card-text__section .custom-btn:hover {
+  -webkit-box-shadow: inset 200px 0 0 0 #1f99d6;
+          box-shadow: inset 200px 0 0 0 #1f99d6;
 }
 
 .cards-section .cards .card:nth-of-type(1) .card-image__section::after {
@@ -165,5 +226,109 @@ header img {
   bottom: 0;
   background: #51ce65;
   opacity: .8;
+}
+
+.cards-section .cards .d-card {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 14rem;
+  background: url("/images/3dchemistry.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: grayscale(90%);
+          filter: grayscale(90%);
+}
+
+.cards-section .cards .d-card a {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+  text-decoration: none;
+  color: white;
+  background: black;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: 2px solid black;
+  border-radius: .2rem;
+  padding: 1rem 4rem;
+  -webkit-transition: 200ms linear;
+  transition: 200ms linear;
+}
+
+.cards-section .cards .d-card a:hover {
+  color: black;
+  -webkit-box-shadow: inset 155px 0 0 0 white;
+          box-shadow: inset 155px 0 0 0 white;
+}
+
+.cards-section .cards .p-card {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 14rem;
+  background: url("/images/playground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%);
+}
+
+.cards-section .cards .p-card a {
+  color: white;
+  background: red;
+  padding: 1rem 4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: .2rem;
+  -webkit-transition: 300ms linear;
+  transition: 300ms linear;
+  cursor: pointer;
+}
+
+.cards-section .cards .p-card a:hover {
+  -webkit-box-shadow: inset 232px 0 0 0 yellow;
+          box-shadow: inset 232px 0 0 0 yellow;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 4rem;
+  background: black;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #1f99d6;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+footer ul {
+  position: relative;
+  list-style: none;
+}
+
+footer ul::before {
+  content: 'Echipa 4:';
+  position: absolute;
+  top: 0;
+  left: -5rem;
+}
+
+footer ul li {
+  font-size: 1.05rem;
+  cursor: default;
+}
+
+footer ul:last-of-type::before {
+  content: 'Surse:';
+  left: -4rem;
 }
 /*# sourceMappingURL=main.css.map */
