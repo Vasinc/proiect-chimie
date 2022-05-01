@@ -241,3 +241,76 @@ footer
         &::before
             content: 'Surse:'
             left: -4rem
+
+// responsive
+@media ( max-width: 1000px )
+    html
+        body
+            main
+                .cards-section
+                    .cards
+                        align-items: center
+                        .card-1
+                            flex-direction: column
+                            width: (min-content + 1rem)
+                            max-width: 600px
+                            padding-bottom: 2rem
+                            .card-image__section
+                                width: auto
+                                img
+                                    aspect-ratio: 1 / 1
+                            .card-text__section
+                                gap: 2rem
+                                padding: 0
+                                h2
+                                    padding-top: 2rem
+                        .d-card
+                            width: -webkit-fill-available
+                            max-width: 600px
+                        .p-card
+                            width: -webkit-fill-available
+                            max-width: 600px
+@media ( max-width: 850px )
+    html
+        body
+            footer
+                flex-direction: column
+                align-items: center
+                gap: 4rem
+                ul
+                    &::before
+                        top: -2rem
+                        left: 0
+                ul:last-of-type
+                    top: -2rem
+                    &::before
+                        top: 0
+
+@media ( max-width: 600px )
+    html
+        body
+            main
+                .cards-section
+                    .cards-heading
+                        h1
+                            font-size: 3rem
+                            transform: translateY(3rem)
+                    .cards
+                        .p-card
+                            .custom-btn
+                                padding: 1rem 3rem
+                                font-size: 1rem
+
+@media ( max-width: 300px)
+    html
+        body
+            main
+                .cards-section
+                    .cards
+                        .d-card
+                            .custom-btn
+                                font-size: 1rem
+                                padding: 1rem 2rem
+                        .p-card
+                            .custom-btn
+                                padding: 1rem

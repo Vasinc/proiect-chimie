@@ -331,4 +331,87 @@ footer ul:last-of-type::before {
   content: 'Surse:';
   left: -4rem;
 }
+
+@media (max-width: 1000px) {
+  html body main .cards-section .cards {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  html body main .cards-section .cards .card-1 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: min-content1rem;
+    max-width: 600px;
+    padding-bottom: 2rem;
+  }
+  html body main .cards-section .cards .card-1 .card-image__section {
+    width: auto;
+  }
+  html body main .cards-section .cards .card-1 .card-image__section img {
+    aspect-ratio: 1 / 1;
+  }
+  html body main .cards-section .cards .card-1 .card-text__section {
+    gap: 2rem;
+    padding: 0;
+  }
+  html body main .cards-section .cards .card-1 .card-text__section h2 {
+    padding-top: 2rem;
+  }
+  html body main .cards-section .cards .d-card {
+    width: -webkit-fill-available;
+    max-width: 600px;
+  }
+  html body main .cards-section .cards .p-card {
+    width: -webkit-fill-available;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 850px) {
+  html body footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 4rem;
+  }
+  html body footer ul::before {
+    top: -2rem;
+    left: 0;
+  }
+  html body footer ul:last-of-type {
+    top: -2rem;
+  }
+  html body footer ul:last-of-type::before {
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  html body main .cards-section .cards-heading h1 {
+    font-size: 3rem;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  html body main .cards-section .cards .p-card .custom-btn {
+    padding: 1rem 3rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  html body main .cards-section .cards .d-card .custom-btn {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+  html body main .cards-section .cards .p-card .custom-btn {
+    padding: 1rem;
+  }
+}
 /*# sourceMappingURL=main.css.map */
