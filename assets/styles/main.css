@@ -34,7 +34,7 @@ header {
   place-items: center;
   width: 100%;
   height: 100vh;
-  background: url("/images/background.jpg");
+  background: url("../images/background.jpg");
 }
 
 header::before {
@@ -233,7 +233,7 @@ header img {
   display: grid;
   place-items: center;
   height: 14rem;
-  background: url("/images/3dchemistry.jpg");
+  background: url("../images/3dchemistry.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -267,7 +267,7 @@ header img {
   display: grid;
   place-items: center;
   height: 14rem;
-  background: url("/images/playground.jpg");
+  background: url("../images/playground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
