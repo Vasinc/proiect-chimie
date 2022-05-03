@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 100%;
+  font-family: 'Rubik', sans-serif;
+  overflow-x: hidden;
+}
+
+header nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: background 300ms ease-out;
+  transition: background 300ms ease-out;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+}
+
+header nav #home {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  border-bottom: 2px solid #f5de8c;
+}
+
+header nav ul li:nth-of-type(1) {
+  position: relative;
+}
+
+header nav ul li:nth-of-type(1)::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background: #f5de8c;
+}
+
+main {
+  height: 1000px;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 4rem;
+  background: black;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: #1f99d6;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+footer ul {
+  position: relative;
+  list-style: none;
+}
+
+footer ul::before {
+  content: 'Echipa 4:';
+  position: absolute;
+  top: 0;
+  left: -5rem;
+}
+
+footer ul li {
+  font-size: 1.05rem;
+  cursor: default;
+}
+
+footer ul:last-of-type::before {
+  content: 'Surse:';
+  left: -4rem;
+}
+
+@media (max-width: 800px) {
+  html body header nav {
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: initial;
+    right: 0;
+    padding: 2rem 3rem;
+    gap: 2rem;
+  }
+  html body header nav ul {
+    border-bottom: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  html body header nav ul li:nth-of-type(1)::before {
+    width: 0;
+    height: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  html body footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 4rem;
+  }
+  html body footer ul::before {
+    top: -2rem;
+    left: 0;
+  }
+  html body footer ul:last-of-type {
+    top: -2rem;
+  }
+  html body footer ul:last-of-type::before {
+    top: 0;
+  }
+}
+/*# sourceMappingURL=common.css.map */

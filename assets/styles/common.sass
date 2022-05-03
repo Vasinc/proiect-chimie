@@ -1,0 +1,119 @@
+// font families
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap')
+
+// variables
+$light-blue: rgb(31, 153, 214)
+$orange: #f5de8c
+
+// classes
+
+// resets
+*, *::before, *::after
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+body
+    box-sizing: border-box
+    font-size: 100%
+    font-family: 'Rubik', sans-serif
+    overflow-x: hidden
+
+header
+    nav
+        width: 100%
+        display: flex
+        padding: 1rem 2rem
+        justify-content: space-between
+        align-items: center
+        transition: background 300ms ease-out
+        a
+            text-decoration: none
+            color: black
+            font-size: 1.1rem
+        #home
+            font-weight: 700
+            font-size: 2rem
+        ul
+            display: flex
+            gap: 1rem
+            list-style: none
+            border-bottom: 2px solid $orange
+            li:nth-of-type(1)
+                position: relative
+                &::before
+                    content: ''
+                    position: absolute
+                    bottom: -4px
+                    left: 0
+                    width: 100%
+                    height: 5px
+                    border-radius: 2px
+                    background: $orange
+
+main
+    height: 1000px
+
+footer
+    display: flex
+    justify-content: space-around
+    padding: 4rem
+    background: black
+    color: white
+    p
+        a
+            text-decoration: none
+            color: $light-blue
+            font-weight: 700
+            font-size: 1.15rem
+    ul
+        position: relative
+        list-style: none
+        &::before
+            content: 'Echipa 4:'
+            position: absolute
+            top: 0
+            left: -5rem
+        li  
+            font-size: 1.05rem
+            cursor: default
+    ul:last-of-type
+        &::before
+            content: 'Surse:'
+            left: -4rem
+
+//responsive
+@media ( max-width: 800px )
+    html
+        body
+            header
+                nav
+                    position: absolute
+                    flex-direction: column
+                    width: initial
+                    right: 0
+                    padding: 2rem 3rem
+                    gap: 2rem
+                    ul
+                        border-bottom: none
+                        flex-direction: column
+                        li:nth-of-type(1)
+                            &::before
+                                width: 0
+                                height: 0
+
+@media ( max-width: 850px )
+    html
+        body
+            footer
+                flex-direction: column
+                align-items: center
+                gap: 4rem
+                ul
+                    &::before
+                        top: -2rem
+                        left: 0
+                ul:last-of-type
+                    top: -2rem
+                    &::before
+                        top: 0
