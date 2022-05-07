@@ -1,0 +1,31 @@
+// variables
+$light-blue: rgb(31, 153, 214)
+$orange: #f5de8c
+    
+header
+    nav
+        ul
+            li:nth-of-type(6)
+                position: relative
+                &::before
+                    content: ''
+                    position: absolute
+                    bottom: -4px
+                    left: 0
+                    width: 100%
+                    height: 5px
+                    border-radius: 2px
+                    background: $orange
+
+//content design
+    
+
+//responsive
+@media ( max-width: 800px)
+    html
+        body
+            header
+                nav
+                    ul
+                        li:nth-of-type(6)
+                            border-bottom: 1px solid $orange

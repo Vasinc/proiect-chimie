@@ -6,6 +6,14 @@ $light-blue: rgb(31, 153, 214)
 $orange: #f5de8c
 
 // classes
+.display-block
+    display: block !important
+
+.display-flex
+    display: flex !important
+
+.overflow-hidden
+    overflow: hidden !important
 
 // resets
 *, *::before, *::after
@@ -19,14 +27,38 @@ body
     font-family: 'Rubik', sans-serif
     overflow-x: hidden
 
+.backdrop
+    display: none
+    position: absolute
+    height: 100vh
+    width: 100%
+    background: rgba(0, 0, 0, .4)
+    z-index: 100
+
 header
+    .burger-menu
+        position: relative
+        top: 1rem
+        left: 1rem
+        display: none
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        height: 1rem
+        width: 1.5rem
+        cursor: pointer
+        span
+            height: 2px
+            width: 100%
+            background: black
     nav
         width: 100%
         display: flex
         padding: 1rem 2rem
         justify-content: space-between
         align-items: center
-        transition: background 300ms ease-out
+        background: white
+        z-index: 101
         a
             text-decoration: none
             color: black
@@ -39,17 +71,6 @@ header
             gap: 1rem
             list-style: none
             border-bottom: 2px solid $orange
-            li:nth-of-type(1)
-                position: relative
-                &::before
-                    content: ''
-                    position: absolute
-                    bottom: -4px
-                    left: 0
-                    width: 100%
-                    height: 5px
-                    border-radius: 2px
-                    background: $orange
 
 main
     height: 1000px
@@ -87,20 +108,22 @@ footer
     html
         body
             header
+                .burger-menu
+                    display: flex
                 nav
+                    display: none
                     position: absolute
                     flex-direction: column
+                    justify-content: flex-start
                     width: initial
+                    height: 100%
+                    top: 0
                     right: 0
-                    padding: 2rem 3rem
+                    padding: 1rem 4rem
                     gap: 2rem
                     ul
                         border-bottom: none
                         flex-direction: column
-                        li:nth-of-type(1)
-                            &::before
-                                width: 0
-                                height: 0
 
 @media ( max-width: 850px )
     html

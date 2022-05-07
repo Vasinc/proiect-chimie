@@ -277,6 +277,7 @@ header img {
 
 .cards-section .cards .p-card a {
   color: white;
+  text-decoration: none;
   background: red;
   padding: 1rem 4rem;
   font-size: 1.15rem;
