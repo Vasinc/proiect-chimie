@@ -17,10 +17,234 @@ header
                     border-radius: 2px
                     background: $orange
 
+body
+    scroll-behavior: smooth
+
 //content design
+main
+    height: initial
+    margin-top: 2rem
+    .user-image__section
+        position: relative
+        .userImg
+            position: relative
+            left: 50%
+            transform: translateX(-50%)
+            width: 9rem
+            padding: 1rem
+            background: white
+            border-radius: 50%
+            border-top: 4px solid black
+            border-bottom: 4px solid black
+        &::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0
+            width: 100%
+            height: 2px
+            background: black   
+    h1
+        text-align: center   
+        font-size: 5rem  
     
+.nitrare-section
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 9rem
+    margin: 8rem 2rem
+    .nitrare-card
+        position: relative
+        width: 60%
+        max-width: 600px
+        padding: 2rem 1rem
+        border: 2px solid $light-blue
+        border-radius: .5rem
+        box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, .5)
+        p
+            text-align: center
+            font-size: 1.25rem
+            a
+                color: red
+                text-decoration: none
+                font-weight: 700
+        &::before
+            content: 'Reactia de nitrare'
+            white-space: wrap
+            position: absolute
+            top: -4rem
+            left: 50%
+            transform: translateX(-50%)
+            font-size: 1.3rem
+            font-weight: 700
+            // width: 10rem
+            // height: 10rem
+            text-align: center
+            border-bottom: 4px solid $light-blue
+    .nitrare-card:last-of-type
+        &::before
+            content: 'Importanta reactiei de nitrare'
+
+.TNT-section
+    margin: 4rem 2rem
+    h2
+        text-align: center
+        font-size: 5rem
+        margin-bottom: 1rem
+    .grid-TNT
+        // display: grid
+        // grid-template-columns: repeat(5, 1fr)
+        // grid-template-rows: repeat(5, 1fr)
+        // grid-template-areas: ". . text text text" ". . text text text" "video video video text text" "video video video . ." "video video video . ."
+        width: 75%
+        // transform: translateX(50%)
+        .TNT-card
+            position: relative
+            width: 100%
+            height: 100%
+            margin-left: auto
+            transform: translateX(40%)
+            max-width: 600px
+            padding: 1rem
+            h3
+                font-size: 2rem
+                color: red
+            p
+                margin: 1rem 0
+                font-size: 1.5rem
+        .TNT-card:first-of-type
+            background: white
+            border: 1px solid black
+            box-shadow: 12px 8px 10px 4px rgba(0, 0, 0, .5)
+            z-index: 2
+        .TNT-card:last-of-type
+            right: 30%
+            top: -5rem
+            z-index: 1
+
+        // .TNT-card:first-of-type
+        //     grid-area: text
+        //     background: red
+        // .TNT-card:last-of-type
+        //     grid-area: video
+        //     background: yellow
+    .TNT-photos
+        display: flex
+        justify-content: space-evenly
+        img
+            width: 45%
+            max-width: 475px
+            height: 100%
+
+.util-section
+    margin: 4rem 2rem
+    h2
+        text-align: center
+        font-size: 5rem
+    .util-cards
+        display: flex
+        justify-content: space-evenly
+        gap: 1rem
+        min-height: 76px
+        margin-top: 3rem
+        .util-card
+            background: $light-blue
+            width: fit-content
+            border-radius: .5rem
+            padding: 1rem
+            max-width: 340px
+            color: black
+            box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, .5)
+            h3
+                padding: .5rem 0
+                font-size: 1.5rem
+                text-align: center
+                color: white
+            p
+                font-size: 1.05rem
+        .util-card:nth-of-type(2)
+            max-width: 285px
+            transform: translateY(40%)
+        .util-card:last-of-type
+            transform: translateY(80%)
+
+.TNfenol-section
+    margin-top: 18rem
+    h2
+        text-align: center
+        font-size: 5rem
+    .fenol-container
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 2rem auto
+        width: 75%
+        max-width: 925px
+        border: 1px solid black
+        border-radius: 1rem
+        overflow: hidden
+        box-shadow: 4px 4px 8px 6px rgba(0, 0, 0, .4)
+        .fenol-card:first-of-type
+            padding: 1rem
+            border-right: 2px solid black
+            h3
+                padding: 1rem
+                font-size: 3rem
+                color: $light-blue
+            p
+                margin: 1rem 0
+                font-size: 1.1rem
+                max-width: 50ch
+        .fenol-card:last-of-type
+            img
+                height: 100%
+                width: auto
+.nitrare-section
+    text-align: center
+    h2
+        font-size: 5rem
 
 //responsive
+@media ( max-width: 1000px) 
+    html
+        body
+            main
+                .TNT-section
+                    .grid-TNT
+                        display: flex
+                        flex-direction: column
+                        margin: auto
+                        // border: 1px solid black
+                        .TNT-card
+                            transform: translateX(0)
+                            border: 1px solid black
+                        .TNT-card:first-of-type
+                            box-shadow: none
+                            border-bottom: none
+                            
+                        .TNT-card:last-of-type
+                            right: 0
+                            top: 0
+                            padding: 0
+                            border: none
+                    .TNT-photos
+                        margin-top: 3rem
+                .util-section
+                    .util-cards
+                        flex-direction: column
+                        align-items: center
+                        gap: 3rem
+                        .util-card
+                            width: 308px
+                        .util-card:nth-of-type(2)
+                            max-width: 308px
+                            transform: translateY(0)
+                        .util-card:last-of-type
+                            transform: translateY(0)
+                .TNfenol-section
+                    margin-top: 3rem
+
 @media ( max-width: 800px)
     html
         body
@@ -29,3 +253,76 @@ header
                     ul
                         li:nth-of-type(4)
                             border-bottom: 1px solid $orange
+            main
+                .nitrare-section
+                    .nitrare-card:last-of-type
+                        &::before
+                            top: -6rem
+                .TNfenol-section
+                    .fenol-container
+                        flex-direction: column
+                        .fenol-card:first-of-type
+                            border-right: none
+                            border-bottom: 2px solid black
+                            h3
+                                font-size: 2rem
+
+@media ( max-width: 650px ) 
+    html
+        body
+            main
+                h1
+                    font-size: 3rem
+                .TNT-section
+                    h2
+                        font-size: 3rem
+                    .grid-TNT
+                        .TNT-card
+                            h3
+                                font-size: 1.75rem
+                            p
+                                font-size: 1.05rem
+                .util-section
+                    h2
+                        font-size: 3rem
+                .TNfenol-section
+                    h2
+                        font-size: 3rem
+                        .fenol-container
+                            .fenol-card:first-of-type
+                                h3
+                                    font-size: 1.5rem
+                .nitrare-section
+                    margin: 4rem 2rem
+                    h2
+                        font-size: 3rem
+                    img
+                        width: 100%
+
+@media ( max-width: 500px )
+    html
+        body
+            main
+                .TNT-section
+                    .TNT-photos
+                        flex-direction: column
+                        align-items: center
+                        gap: 2rem
+
+@media ( max-width: 415px )
+    html
+        body
+            main
+                h1
+                    font-size: 2rem
+                .nitrare-section
+                    .nitrare-card
+                        width: 100%
+                    .nitrare-card:first-of-type
+                        &::before
+                            top: -4rem
+                            font-size: 1rem
+                .util-section
+                    .util-cards
+                        .util-card
+                            width: 100%

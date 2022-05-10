@@ -13,9 +13,419 @@ header nav ul li:nth-of-type(4)::before {
   background: #f5de8c;
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
+main {
+  height: initial;
+  margin-top: 2rem;
+}
+
+main .user-image__section {
+  position: relative;
+}
+
+main .user-image__section .userImg {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 9rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 50%;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+main .user-image__section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: black;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.nitrare-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 9rem;
+  margin: 8rem 2rem;
+}
+
+.nitrare-section .nitrare-card {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  padding: 2rem 1rem;
+  border: 2px solid #1f99d6;
+  border-radius: .5rem;
+  -webkit-box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, 0.5);
+          box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, 0.5);
+}
+
+.nitrare-section .nitrare-card p {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.nitrare-section .nitrare-card p a {
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nitrare-section .nitrare-card::before {
+  content: 'Reactia de nitrare';
+  white-space: wrap;
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 4px solid #1f99d6;
+}
+
+.nitrare-section .nitrare-card:last-of-type::before {
+  content: 'Importanta reactiei de nitrare';
+}
+
+.TNT-section {
+  margin: 4rem 2rem;
+}
+
+.TNT-section h2 {
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.TNT-section .grid-TNT {
+  width: 75%;
+}
+
+.TNT-section .grid-TNT .TNT-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  -webkit-transform: translateX(40%);
+          transform: translateX(40%);
+  max-width: 600px;
+  padding: 1rem;
+}
+
+.TNT-section .grid-TNT .TNT-card h3 {
+  font-size: 2rem;
+  color: red;
+}
+
+.TNT-section .grid-TNT .TNT-card p {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.TNT-section .grid-TNT .TNT-card:first-of-type {
+  background: white;
+  border: 1px solid black;
+  -webkit-box-shadow: 12px 8px 10px 4px rgba(0, 0, 0, 0.5);
+          box-shadow: 12px 8px 10px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.TNT-section .grid-TNT .TNT-card:last-of-type {
+  right: 30%;
+  top: -5rem;
+  z-index: 1;
+}
+
+.TNT-section .TNT-photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.TNT-section .TNT-photos img {
+  width: 45%;
+  max-width: 475px;
+  height: 100%;
+}
+
+.util-section {
+  margin: 4rem 2rem;
+}
+
+.util-section h2 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.util-section .util-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 1rem;
+  min-height: 76px;
+  margin-top: 3rem;
+}
+
+.util-section .util-cards .util-card {
+  background: #1f99d6;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: .5rem;
+  padding: 1rem;
+  max-width: 340px;
+  color: black;
+  -webkit-box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, 0.5);
+          box-shadow: 4px 4px 8px 4px rgba(31, 153, 214, 0.5);
+}
+
+.util-section .util-cards .util-card h3 {
+  padding: .5rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.util-section .util-cards .util-card p {
+  font-size: 1.05rem;
+}
+
+.util-section .util-cards .util-card:nth-of-type(2) {
+  max-width: 285px;
+  -webkit-transform: translateY(40%);
+          transform: translateY(40%);
+}
+
+.util-section .util-cards .util-card:last-of-type {
+  -webkit-transform: translateY(80%);
+          transform: translateY(80%);
+}
+
+.TNfenol-section {
+  margin-top: 18rem;
+}
+
+.TNfenol-section h2 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.TNfenol-section .fenol-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem auto;
+  width: 75%;
+  max-width: 925px;
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+  -webkit-box-shadow: 4px 4px 8px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 4px 4px 8px 6px rgba(0, 0, 0, 0.4);
+}
+
+.TNfenol-section .fenol-container .fenol-card:first-of-type {
+  padding: 1rem;
+  border-right: 2px solid black;
+}
+
+.TNfenol-section .fenol-container .fenol-card:first-of-type h3 {
+  padding: 1rem;
+  font-size: 3rem;
+  color: #1f99d6;
+}
+
+.TNfenol-section .fenol-container .fenol-card:first-of-type p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  max-width: 50ch;
+}
+
+.TNfenol-section .fenol-container .fenol-card:last-of-type img {
+  height: 100%;
+  width: auto;
+}
+
+.nitrare-section {
+  text-align: center;
+}
+
+.nitrare-section h2 {
+  font-size: 5rem;
+}
+
+@media (max-width: 1000px) {
+  html body main .TNT-section .grid-TNT {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: auto;
+  }
+  html body main .TNT-section .grid-TNT .TNT-card {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    border: 1px solid black;
+  }
+  html body main .TNT-section .grid-TNT .TNT-card:first-of-type {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border-bottom: none;
+  }
+  html body main .TNT-section .grid-TNT .TNT-card:last-of-type {
+    right: 0;
+    top: 0;
+    padding: 0;
+    border: none;
+  }
+  html body main .TNT-section .TNT-photos {
+    margin-top: 3rem;
+  }
+  html body main .util-section .util-cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 3rem;
+  }
+  html body main .util-section .util-cards .util-card {
+    width: 308px;
+  }
+  html body main .util-section .util-cards .util-card:nth-of-type(2) {
+    max-width: 308px;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  html body main .util-section .util-cards .util-card:last-of-type {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  html body main .TNfenol-section {
+    margin-top: 3rem;
+  }
+}
+
 @media (max-width: 800px) {
   html body header nav ul li:nth-of-type(4) {
     border-bottom: 1px solid #f5de8c;
+  }
+  html body main .nitrare-section .nitrare-card:last-of-type::before {
+    top: -6rem;
+  }
+  html body main .TNfenol-section .fenol-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  html body main .TNfenol-section .fenol-container .fenol-card:first-of-type {
+    border-right: none;
+    border-bottom: 2px solid black;
+  }
+  html body main .TNfenol-section .fenol-container .fenol-card:first-of-type h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  html body main h1 {
+    font-size: 3rem;
+  }
+  html body main .TNT-section h2 {
+    font-size: 3rem;
+  }
+  html body main .TNT-section .grid-TNT .TNT-card h3 {
+    font-size: 1.75rem;
+  }
+  html body main .TNT-section .grid-TNT .TNT-card p {
+    font-size: 1.05rem;
+  }
+  html body main .util-section h2 {
+    font-size: 3rem;
+  }
+  html body main .TNfenol-section h2 {
+    font-size: 3rem;
+  }
+  html body main .TNfenol-section h2 .fenol-container .fenol-card:first-of-type h3 {
+    font-size: 1.5rem;
+  }
+  html body main .nitrare-section {
+    margin: 4rem 2rem;
+  }
+  html body main .nitrare-section h2 {
+    font-size: 3rem;
+  }
+  html body main .nitrare-section img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  html body main .TNT-section .TNT-photos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 415px) {
+  html body main h1 {
+    font-size: 2rem;
+  }
+  html body main .nitrare-section .nitrare-card {
+    width: 100%;
+  }
+  html body main .nitrare-section .nitrare-card:first-of-type::before {
+    top: -4rem;
+    font-size: 1rem;
+  }
+  html body main .util-section .util-cards .util-card {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=fulea.css.map */
