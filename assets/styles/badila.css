@@ -13,9 +13,91 @@ header nav ul li:nth-of-type(2)::before {
   background: #f5de8c;
 }
 
+main {
+  height: initial;
+  margin-top: 2rem;
+}
+
+main .user-image__section {
+  position: relative;
+}
+
+main .user-image__section .userImg {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 9rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 50%;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+main .user-image__section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: black;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+.sulfonare-sections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.sulfonare-sections h2 {
+  font-size: 2.5rem;
+  text-decoration: underline;
+}
+
+.sulfonare-sections p {
+  font-size: 1.2rem;
+}
+
+.sulfonare-sections img {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.sulfonare-sections .sulfonare-section:nth-of-type(2) .obs {
+  color: red;
+  font-weight: 700;
+  font-size: 110%;
+}
+
+.sulfonare-sections .sulfonare-section:nth-of-type(2) .obs::after {
+  content: '!';
+}
+
 @media (max-width: 800px) {
   html body header nav ul li:nth-of-type(2) {
     border-bottom: 1px solid #f5de8c;
+  }
+  html body main h1 {
+    font-size: 3rem;
+  }
+  html body main .sulfonare-sections h2 {
+    font-size: 1.5rem;
+  }
+  html body main .sulfonare-sections p {
+    font-size: 1.05rem;
   }
 }
 /*# sourceMappingURL=badila.css.map */

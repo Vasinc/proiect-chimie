@@ -89,6 +89,10 @@ main h1 {
   gap: 1rem;
 }
 
+.exercises-section .exercise-answer__section img {
+  max-width: 900px;
+}
+
 @media (max-width: 800px) {
   html body header nav ul li:nth-of-type(3) {
     border-bottom: 1px solid #f5de8c;

@@ -18,7 +18,53 @@ header
                     background: $orange
 
 //content design
-    
+main
+    height: initial
+    margin-top: 2rem
+    .user-image__section
+        position: relative
+        .userImg
+            position: relative
+            left: 50%
+            transform: translateX(-50%)
+            width: 9rem
+            padding: 1rem
+            background: white
+            border-radius: 50%
+            border-top: 4px solid black
+            border-bottom: 4px solid black
+        &::before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 0
+            width: 100%
+            height: 2px
+            background: black   
+    h1
+        text-align: center   
+        font-size: 5rem  
+
+.sulfonare-sections
+    display: flex
+    flex-direction: column
+    gap: 3rem
+    padding: 2rem
+    h2
+        font-size: 2.5rem
+        text-decoration: underline
+    p
+        font-size: 1.2rem
+    img
+        width: 100%
+        max-width: 1000px
+    .sulfonare-section:nth-of-type(2)
+        .obs
+            color: red
+            font-weight: 700
+            font-size: 110%
+            &::after
+                content: '!'
 
 //responsive
 @media ( max-width: 800px)
@@ -29,3 +75,11 @@ header
                     ul
                         li:nth-of-type(2)
                             border-bottom: 1px solid $orange
+            main
+                h1
+                    font-size: 3rem
+                .sulfonare-sections
+                    h2
+                        font-size: 1.5rem
+                    p
+                        font-size: 1.05rem
