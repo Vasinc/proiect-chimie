@@ -21,7 +21,6 @@ header
 main
     height: initial
     margin-top: 2rem
-    height: 700px
     .user-image__section
         position: relative
         .userImg
@@ -46,6 +45,18 @@ main
         text-align: center   
         font-size: 5rem  
 
+.nitrare-sulfonare__section
+    display: flex
+    flex-direction: column
+    padding: 2rem
+    gap: 2rem
+    h2
+        text-align: center
+        font-size: 5rem 
+    img
+        width: 80%
+        max-width: 1000px
+
 //responsive
 @media ( max-width: 800px)
     html
@@ -58,3 +69,8 @@ main
             main
                 h1
                     font-size: 3rem
+                .nitrare-sulfonare__section
+                    h2
+                        font-size: 2.5rem
+                    img
+                        width: 100%

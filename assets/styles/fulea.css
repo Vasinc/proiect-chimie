@@ -288,6 +288,11 @@ main h1 {
   font-size: 5rem;
 }
 
+.nitrare-section img {
+  width: 75%;
+  max-width: 900px;
+}
+
 @media (max-width: 1000px) {
   html body main .TNT-section .grid-TNT {
     display: -webkit-box;
