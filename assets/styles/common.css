@@ -138,6 +138,10 @@ footer ul li {
   cursor: default;
 }
 
+footer ul li a {
+  color: white;
+}
+
 footer ul:last-of-type::before {
   content: 'Surse:';
   left: -4rem;

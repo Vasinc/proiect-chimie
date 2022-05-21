@@ -395,6 +395,9 @@ footer ul:last-of-type::before {
 }
 
 @media (max-width: 600px) {
+  html body main .cards-section {
+    padding: 2rem;
+  }
   html body main .cards-section .cards-heading h1 {
     font-size: 3rem;
     -webkit-transform: translateY(3rem);

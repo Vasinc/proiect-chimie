@@ -293,6 +293,19 @@ main h1 {
   max-width: 900px;
 }
 
+.nitrare-acid-section {
+  text-align: center;
+}
+
+.nitrare-acid-section h2 {
+  font-size: 5rem;
+}
+
+.nitrare-acid-section img {
+  width: 75%;
+  max-width: 900px;
+}
+
 @media (max-width: 1000px) {
   html body main .TNT-section .grid-TNT {
     display: -webkit-box;
@@ -401,6 +414,15 @@ main h1 {
     font-size: 3rem;
   }
   html body main .nitrare-section img {
+    width: 100%;
+  }
+  html body main .nitrare-acid-section {
+    margin: 4rem 2rem;
+  }
+  html body main .nitrare-acid-section h2 {
+    font-size: 3rem;
+  }
+  html body main .nitrare-acid-section img {
     width: 100%;
   }
 }
