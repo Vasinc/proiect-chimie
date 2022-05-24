@@ -328,11 +328,6 @@ footer ul li {
   cursor: default;
 }
 
-footer ul:last-of-type::before {
-  content: 'Surse:';
-  left: -4rem;
-}
-
 @media (max-width: 1000px) {
   html body main .cards-section .cards {
     -webkit-box-align: center;
