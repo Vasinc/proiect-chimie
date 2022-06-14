@@ -13,9 +13,141 @@ header nav ul li:nth-of-type(6)::before {
   background: #f5de8c;
 }
 
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5rem;
+  margin: 8rem 0;
+  height: initial;
+}
+
+main .slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .slots .slot-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .slots .slot-row .slot-item {
+  height: 150px;
+  width: 150px;
+  background: red;
+  border: 1px solid black;
+}
+
+main .slots .slot-row:nth-of-type(2) .slot-item {
+  border: 4px solid black;
+  background: blue;
+}
+
+main .slots .slot-row:nth-of-type(2) #slot-item-1 {
+  border-left: 6px solid black;
+}
+
+main .slots .slot-row:nth-of-type(2) #slot-item-3 {
+  border-right: 6px solid black;
+}
+
+main .slots .slots-info {
+  margin-top: 3rem;
+}
+
+main .slots .slots-info p {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+main .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main .buttons .button {
+  padding: 2.5rem 3.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 1rem;
+  -webkit-box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+main .buttons .shop-btn {
+  background: #066b28;
+  color: white;
+}
+
+main .buttons .spin-btn {
+  background: red;
+  color: white;
+}
+
 @media (max-width: 800px) {
   html body header nav ul li:nth-of-type(6) {
     border-bottom: 1px solid #f5de8c;
+  }
+  html body main {
+    margin: 8rem 4rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2rem;
+  }
+  html body main .slots-info {
+    text-align: center;
+  }
+  html body main .buttons {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  html body main .slots .slot-row .slot-item {
+    width: 100px;
+    height: 100px;
+  }
+  html body main .slots .slots-info p {
+    font-size: 2rem;
+  }
+  html body main .buttons .button {
+    padding: 1.5rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  html body main .slots .slot-row .slot-item {
+    height: 50px;
+    width: 50px;
+  }
+  html body main .buttons .button {
+    padding: 1rem 2rem;
   }
 }
 /*# sourceMappingURL=play.css.map */
