@@ -17,23 +17,23 @@ function changeSlots () {
             rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
             prvSlot.unshift(rndNum);
             prvSlot.pop;
-            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[0]]}_slots.jpg')`;
-            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[1]]}_slots.jpg')`;
-            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[2]]}_slots.jpg')`;
+            slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[2]]}_slots.jpg')`;
         } else if ( i == 1 ) {
             rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
             prvSlot1.unshift(rndNum);
             prvSlot1.pop;
-            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[0]]}_slots.jpg')`;
-            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[1]]}_slots.jpg')`;
-            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[2]]}_slots.jpg')`;
+            slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[2]]}_slots.jpg')`;
         } else {
             rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
             prvSlot2.unshift(rndNum);
             prvSlot2.pop;
-            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[0]]}_slots.jpg')`;
-            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[1]]}_slots.jpg')`;
-            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[2]]}_slots.jpg')`;
+            slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot2[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot2[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot2[2]]}_slots.jpg')`;
         }
     }
     randomSpins = randomSpins - 1;
