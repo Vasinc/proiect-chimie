@@ -1,39 +1,39 @@
 const slots = document.querySelectorAll(".slot-item");
 const spinBtn = document.querySelector('.spin-btn');
 
-const COLORS = ['red', 'blue', 'cyan', 'green', 'pink', 'magenta', 'purple', 'yellow', 'brown']
+const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
 let isSpinning = false;
 let randomSpins;
 let auto_slots;
-let prvColors = [0, 0, 0];
-let prvColors1 = [0, 0, 0];
-let prvColors2 = [0, 0, 0];
+let prvSlot = [0, 0, 0];
+let prvSlot1 = [0, 0, 0];
+let prvSlot2 = [0, 0, 0];
 
 
 function changeSlots () {
     for(let i=0; i<3; i++) {
         if (i == 0) {
-            rndNum = Math.trunc(Math.random() * COLORS.length);
-            prvColors.unshift(rndNum);
-            prvColors.pop;
-            slots[i].style.background = COLORS[prvColors[0]];
-            slots[i + 3].style.background = COLORS[prvColors[1]];
-            slots[i + 6].style.background = COLORS[prvColors[2]];
+            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            prvSlot.unshift(rndNum);
+            prvSlot.pop;
+            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot[2]]}_slots.jpg')`;
         } else if ( i == 1 ) {
-            rndNum = Math.trunc(Math.random() * COLORS.length);
-            prvColors1.unshift(rndNum);
-            prvColors1.pop;
-            slots[i].style.background = COLORS[prvColors1[0]];
-            slots[i + 3].style.background = COLORS[prvColors1[1]];
-            slots[i + 6].style.background = COLORS[prvColors1[2]];
+            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            prvSlot1.unshift(rndNum);
+            prvSlot1.pop;
+            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot1[2]]}_slots.jpg')`;
         } else {
-            rndNum = Math.trunc(Math.random() * COLORS.length);
-            prvColors2.unshift(rndNum);
-            prvColors2.pop;
-            slots[i].style.background = COLORS[prvColors2[0]];
-            slots[i + 3].style.background = COLORS[prvColors2[1]];
-            slots[i + 6].style.background = COLORS[prvColors2[2]];
+            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            prvSlot2.unshift(rndNum);
+            prvSlot2.pop;
+            slots[i].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[0]]}_slots.jpg')`;
+            slots[i + 3].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[1]]}_slots.jpg')`;
+            slots[i + 6].style.backgroundImage = `url('/assets/slots_assets/${SLOTS_ASSETS[prvSlot2[2]]}_slots.jpg')`;
         }
     }
     randomSpins = randomSpins - 1;
@@ -47,9 +47,6 @@ function changeSlots () {
         spinBtn.addEventListener('click', spinSlots);
         spinBtn.style.background = 'red';
         spinBtn.style.cursor = 'pointer';
-        console.log(prvColors[1]);
-        console.log(prvColors1[1]);
-        console.log(prvColors2[1]);
     }
 }
 
