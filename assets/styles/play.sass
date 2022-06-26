@@ -57,19 +57,60 @@ main
         display: flex
         flex-direction: column
         justify-content: space-evenly
+        align-items: center
+        .change-bet__button
+            display: flex
+            gap: 1rem
+            align-items: center
+            flex-wrap: wrap
+            font-weight: 700
+            .decrease-bet
+                display: flex
+                gap: 1rem
+            .decrease-bet > *
+                background: $light-blue
+                padding: 1rem
+                border-radius: .5rem
+                cursor: pointer
+                user-select: none
+                &::before
+                    content: '-'
+            .increase-bet
+                display: flex
+                gap: 1rem
+            .increase-bet > *
+                background: darken($light-blue, 30%)
+                color: white
+                padding: 1rem
+                border-radius: .5rem
+                cursor: pointer
+                user-select: none
+                &::before
+                    content: '+'
+            .bet-val
+                font-size: 1.5rem
+                cursor: default
+                user-select: none
+                &::after
+                    content: '$'
+                    color: green
         .button 
             padding: 2.5rem 3.5rem
+            max-width: 200px
             text-align: center
             font-size: 1.5rem
             font-weight: 700
             cursor: pointer
             border-radius: 1rem
             box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, .2)
+            user-select: none
         .shop-btn
             background: #066b28
-            color: white
+            background: grey
+            color: darken(grey, 25%)
+            cursor: not-allowed
         .spin-btn
-            background: red
+            background: rgb(255, 0, 0)
             color: white
             transition: background 100ms ease-out
             
@@ -78,6 +119,30 @@ main
 
 
 //responsive
+@media  ( max-width: 1000px )
+    html
+        body
+            main
+                .buttons
+                    .change-bet__button
+                        gap: .5rem
+                        .decrease-bet
+                            gap: .5rem
+                        .decrease-bet > *
+                            padding: .75rem
+                        .increase-bet
+                            gap: .5rem
+                        .increase-bet > *
+                            padding: .75rem
+
+@media ( max-width: 1050px )
+    html
+        body
+            main
+                .buttons
+                    .change-bet__button
+                        flex-direction: column
+
 @media ( max-width: 800px)
     html
         body
@@ -96,6 +161,12 @@ main
                 .buttons
                     gap: 2rem
                     flex-direction: column-reverse
+                    .change-bet__button
+                        .decrease-bet > *
+                            padding: .5rem
+                        .increase-bet > *
+                            padding: .5rem
+
 @media ( max-width: 500px )
     html
         body

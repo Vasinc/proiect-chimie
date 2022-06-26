@@ -83,10 +83,86 @@ main .buttons {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .buttons .change-bet__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-weight: 700;
+}
+
+main .buttons .change-bet__button .decrease-bet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+main .buttons .change-bet__button .decrease-bet > * {
+  background: #1f99d6;
+  padding: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .buttons .change-bet__button .decrease-bet > *::before {
+  content: '-';
+}
+
+main .buttons .change-bet__button .increase-bet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+main .buttons .change-bet__button .increase-bet > * {
+  background: #0c3950;
+  color: white;
+  padding: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .buttons .change-bet__button .increase-bet > *::before {
+  content: '+';
+}
+
+main .buttons .change-bet__button .bet-val {
+  font-size: 1.5rem;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main .buttons .change-bet__button .bet-val::after {
+  content: '$';
+  color: green;
 }
 
 main .buttons .button {
   padding: 2.5rem 3.5rem;
+  max-width: 200px;
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
@@ -94,11 +170,17 @@ main .buttons .button {
   border-radius: 1rem;
   -webkit-box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.2);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 main .buttons .shop-btn {
   background: #066b28;
-  color: white;
+  background: grey;
+  color: #404040;
+  cursor: not-allowed;
 }
 
 main .buttons .spin-btn {
@@ -106,6 +188,33 @@ main .buttons .spin-btn {
   color: white;
   -webkit-transition: background 100ms ease-out;
   transition: background 100ms ease-out;
+}
+
+@media (max-width: 1000px) {
+  html body main .buttons .change-bet__button {
+    gap: .5rem;
+  }
+  html body main .buttons .change-bet__button .decrease-bet {
+    gap: .5rem;
+  }
+  html body main .buttons .change-bet__button .decrease-bet > * {
+    padding: .75rem;
+  }
+  html body main .buttons .change-bet__button .increase-bet {
+    gap: .5rem;
+  }
+  html body main .buttons .change-bet__button .increase-bet > * {
+    padding: .75rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  html body main .buttons .change-bet__button {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 @media (max-width: 800px) {
@@ -132,6 +241,12 @@ main .buttons .spin-btn {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+  }
+  html body main .buttons .change-bet__button .decrease-bet > * {
+    padding: .5rem;
+  }
+  html body main .buttons .change-bet__button .increase-bet > * {
+    padding: .5rem;
   }
 }
 

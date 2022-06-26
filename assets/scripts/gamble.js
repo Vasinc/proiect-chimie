@@ -1,14 +1,34 @@
 const slots = document.querySelectorAll(".slot-item");
 const spinBtn = document.querySelector('.spin-btn');
+const decreaseBet = document.querySelector('.decrease-bet');
+const increaseBet = document.querySelector('.increase-bet');
 
 const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
+let moneyVal = parseInt(document.querySelector('.money').textContent);
+let betVal = parseInt(document.querySelector('.bet-val').textContent);
 let isSpinning = false;
 let randomSpins;
 let auto_slots;
+let midVals;
 let prvSlot = [0, 0, 0];
 let prvSlot1 = [0, 0, 0];
 let prvSlot2 = [0, 0, 0];
+
+spinBtn.style.background = `rgb(255, 0, 0)`;
+
+moneyVal = 1000;
+updateMoney();
+betVal = 10;
+updateBet();
+
+function updateMoney() {
+    document.querySelector('.money').textContent = moneyVal;
+};
+
+function updateBet() {
+    document.querySelector('.bet-val').textContent = betVal;
+}
 
 
 function changeSlots () {
@@ -41,23 +61,95 @@ function changeSlots () {
     spinBtn.style.background = 'grey';
     spinBtn.style.cursor = 'not-allowed';
     if (randomSpins == 0) {
+        midVals = [prvSlot[1], prvSlot1[1], prvSlot2[1]];
+        console.log(midVals);
+        moneyVal = moneyVal - betVal;
+        updateMoney();
+        console.log(moneyVal);
+        for(let i=0; i<1; i++) {
+            console.log(midVals[i]);
+            console.log(midVals[i+1]);
+            console.log(midVals[i+2]);
+            if ( midVals[i] == midVals[i+1] && midVals[i+1] == midVals[i+2]) {
+                switch (midVals[i]) {
+                    case 0:
+                        moneyVal = moneyVal + betVal * 20;
+                        updateMoney();
+                        break;
+                    case 1:
+                        moneyVal = moneyVal + betVal * 30;
+                        updateMoney();
+                        break;
+                    case 2:
+                        moneyVal = moneyVal + betVal * 50;
+                        updateMoney();
+                        break;
+                    case 3:
+                        moneyVal = moneyVal + betVal * 70;
+                        updateMoney();
+                        break;
+                    case 4:
+                        moneyVal = moneyVal + betVal * 85;
+                        updateMoney();
+                        break;
+                    case 5:
+                        moneyVal = moneyVal + betVal * 100;
+                        updateMoney();
+                        break;
+                    case 6:
+                        moneyVal = moneyVal + betVal * 150;
+                        updateMoney();
+                        break;
+                    case 7:
+                        moneyVal = moneyVal + betVal * 300;
+                        updateMoney();
+                        break;
+                }
+                console.log('se repeta de trei ori')
+            } else if (  midVals[i] == midVals[i+1] || midVals[i] == midVals[i+2] || midVals[i+1] == midVals[i+2] ) {
+                moneyVal = moneyVal + betVal * 2;
+                updateMoney();
+                console.log('se repeta de doua ori');
+            } else {
+                console.log('nu se repeta deloc')
+            }
+        }
+        console.log(moneyVal);
+        console.log('----------------------')
         clearInterval(auto_slots);
         auto_slots = null;
         isSpinning = false;
         spinBtn.addEventListener('click', spinSlots);
-        spinBtn.style.background = 'red';
+        spinBtn.style.background = `rgb(255, 0, 0)`;
         spinBtn.style.cursor = 'pointer';
     }
 }
 
 function spinSlots () {
         randomSpins = Math.trunc(Math.random() * 15 + 7);
-    if( isSpinning == false ) {
+    if( isSpinning == false && (moneyVal - betVal) >= 0) {
         isSpinning = true;
-        auto_slots = setInterval(changeSlots, 350);
+        auto_slots = setInterval(changeSlots, 150);
     } else {
         return;
     }
 }
 
 spinBtn.addEventListener('click', spinSlots)
+decreaseBet.addEventListener('click', event => {
+    const decrementValue = parseInt(event.target.className);
+    if (decrementValue && spinBtn.style.background == 'rgb(255, 0, 0)') {
+        if( (betVal - decrementValue) < 1) {
+            return;
+        }
+        betVal = betVal - decrementValue;
+        updateBet();
+    }
+})
+increaseBet.addEventListener('click', event => {
+    const incrementValue = parseInt(event.target.className);
+    if (incrementValue && spinBtn.style.background == `rgb(255, 0, 0)`) {
+        betVal = betVal + incrementValue;
+        updateBet();
+    }
+})
