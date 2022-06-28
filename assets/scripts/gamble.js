@@ -2,6 +2,11 @@ const slots = document.querySelectorAll(".slot-item");
 const spinBtn = document.querySelector('.spin-btn');
 const decreaseBet = document.querySelector('.decrease-bet');
 const increaseBet = document.querySelector('.increase-bet');
+const playBackdrop = document.querySelector('.play-backdrop');
+const resetUI = document.querySelector('.reset-confirm');
+const confirmResetBtn = document.querySelector('.reset-confirm__btn');
+const declineResetBtn = document.querySelector('.reset-decline__btn');
+const resetBtn = document.querySelector('.reset-btn');
 
 const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
@@ -28,6 +33,17 @@ function updateMoney() {
 
 function updateBet() {
     document.querySelector('.bet-val').textContent = betVal;
+}
+
+window.onload = function () {
+    if (localStorage.getItem('Money')) {
+        moneyVal = localStorage.getItem('Money');
+        updateMoney();
+    }
+    if (localStorage.getItem('betValue')) {
+        betVal = localStorage.getItem('betValue');
+        updateBet();
+    }
 }
 
 
@@ -122,6 +138,7 @@ function changeSlots () {
         spinBtn.addEventListener('click', spinSlots);
         spinBtn.style.background = `rgb(255, 0, 0)`;
         spinBtn.style.cursor = 'pointer';
+        localStorage.setItem('Money', moneyVal);
     }
 }
 
@@ -144,6 +161,7 @@ decreaseBet.addEventListener('click', event => {
         }
         betVal = betVal - decrementValue;
         updateBet();
+        localStorage.setItem('betValue', betVal);
     }
 })
 increaseBet.addEventListener('click', event => {
@@ -151,5 +169,37 @@ increaseBet.addEventListener('click', event => {
     if (incrementValue && spinBtn.style.background == `rgb(255, 0, 0)`) {
         betVal = betVal + incrementValue;
         updateBet();
+        localStorage.setItem('betValue', betVal);
     }
+})
+
+resetBtn.addEventListener('click', () => {
+    playBackdrop.classList.add('display-block');
+    resetUI.classList.add('display-flex')
+    document.body.style.overflow = 'hidden';
+    playBackdrop.scrollIntoView();
+})
+
+playBackdrop.addEventListener('click', () => {
+    playBackdrop.classList.remove('display-block');
+    resetUI.classList.remove('display-flex');
+    document.body.style.overflow = 'visible';
+})
+
+declineResetBtn.addEventListener('click', () => {
+    playBackdrop.classList.remove('display-block');
+    resetUI.classList.remove('display-flex');
+    document.body.style.overflow = 'visible';
+})
+
+confirmResetBtn.addEventListener('click', () => {
+    playBackdrop.classList.remove('display-block');
+    resetUI.classList.remove('display-flex');
+    document.body.style.overflow = 'visible';
+    moneyVal = 1000;
+    betVal = 10;
+    updateMoney();
+    updateBet();
+    localStorage.removeItem('Money');
+    localStorage.removeItem('betValue');
 })
