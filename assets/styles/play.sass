@@ -171,6 +171,12 @@ main
             background: green
             color: black
 
+footer
+    ul:last-of-type
+        &::before
+            content: 'Echipa 4:'
+            left: -5rem
+
 //responsive
 @media  ( max-width: 1000px )
     html
@@ -195,6 +201,16 @@ main
                 .buttons
                     .change-bet__button
                         flex-direction: column
+
+@media ( max-width: 850px )
+    html
+        body
+            footer
+                ul:last-of-type
+                    &::before
+                        left: 0
+                        top: -1.5rem
+                
 
 @media ( max-width: 800px)
     html
@@ -244,6 +260,7 @@ main
                     .button
                         padding: 1.5rem 2.5rem
                         font-size: 1.1rem
+
 
 @media ( max-width: 350px )
     html

@@ -272,6 +272,11 @@ main .buttons .spin-btn {
   color: black;
 }
 
+footer ul:last-of-type::before {
+  content: 'Echipa 4:';
+  left: -5rem;
+}
+
 @media (max-width: 1000px) {
   html body main .buttons .change-bet__button {
     gap: .5rem;
@@ -296,6 +301,13 @@ main .buttons .spin-btn {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+@media (max-width: 850px) {
+  html body footer ul:last-of-type::before {
+    left: 0;
+    top: -1.5rem;
   }
 }
 

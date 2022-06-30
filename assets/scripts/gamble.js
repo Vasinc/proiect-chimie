@@ -41,7 +41,7 @@ window.onload = function () {
         updateMoney();
     }
     if (localStorage.getItem('betValue')) {
-        betVal = localStorage.getItem('betValue');
+        betVal = parseInt(localStorage.getItem('betValue'));
         updateBet();
     }
 }
