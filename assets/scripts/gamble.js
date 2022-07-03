@@ -7,6 +7,9 @@ const resetUI = document.querySelector('.reset-confirm');
 const confirmResetBtn = document.querySelector('.reset-confirm__btn');
 const declineResetBtn = document.querySelector('.reset-decline__btn');
 const resetBtn = document.querySelector('.reset-btn');
+const shopBtn = document.querySelector('.shop-btn');
+const closeShopBtn = document.querySelector('.close-shop__button');
+const shop = document.querySelector('.shop');
 
 const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
@@ -183,6 +186,7 @@ resetBtn.addEventListener('click', () => {
 playBackdrop.addEventListener('click', () => {
     playBackdrop.classList.remove('display-block');
     resetUI.classList.remove('display-flex');
+    shop.classList.remove('display-block');
     document.body.style.overflow = 'visible';
 })
 
@@ -202,4 +206,17 @@ confirmResetBtn.addEventListener('click', () => {
     updateBet();
     localStorage.removeItem('Money');
     localStorage.removeItem('betValue');
+})
+
+shopBtn.addEventListener('click', () => {
+    playBackdrop.classList.add('display-block');
+    shop.classList.add('display-block');
+    document.body.style.overflow = 'hidden';
+    playBackdrop.scrollIntoView();
+})
+
+closeShopBtn.addEventListener('click', () => {
+    playBackdrop.classList.remove('display-block');
+    shop.classList.remove('display-block');
+    document.body.style.overflow = 'visible';
 })

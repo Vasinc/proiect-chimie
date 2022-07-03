@@ -207,9 +207,7 @@ main .buttons .button {
 
 main .buttons .shop-btn {
   background: #066b28;
-  background: grey;
-  color: #404040;
-  cursor: not-allowed;
+  color: white;
 }
 
 main .buttons .spin-btn {
@@ -228,6 +226,146 @@ main .buttons .spin-btn {
   left: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+}
+
+.shop {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 1002;
+  width: 90%;
+  max-width: 800px;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.shop .shop-UI {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  padding: 3rem;
+  background: white;
+}
+
+.shop .shop-UI .close-shop__button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: .25rem .5rem;
+  background: red;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.shop .shop-UI .shop-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.shop .shop-UI .shop-header .stars-section {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: .1rem .5rem;
+  min-width: 187px;
+  height: 56px;
+  color: #eeb449;
+  background: #fbf1e6;
+  border: 4px solid #f5de8c;
+  border-radius: .5rem;
+  -webkit-box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, 0.5);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.shop .shop-UI .shop-header .info-section {
+  width: 50%;
+  max-width: 400px;
+  font-weight: 600;
+  padding: .5rem;
+  background: black;
+  color: white;
+  border-radius: .5rem;
+  -webkit-box-shadow: 4px 4px 6px 3px rgba(0, 0, 0, 0.8);
+          box-shadow: 4px 4px 6px 3px rgba(0, 0, 0, 0.8);
+}
+
+.shop .shop-UI .shop-header .info-section .row-seven-left {
+  color: #1f99d6;
+  font-weight: 700;
+}
+
+.shop .shop-UI .shop-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.shop .shop-UI .shop-body .upgrades-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.shop .shop-UI .shop-body .upgrades-row .upgrade {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid black;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.shop .shop-UI .shop-body .upgrades-row .upgrade .upgrade-progress {
+  padding: .5rem;
+}
+
+.shop .shop-UI .shop-body .upgrades-row .upgrade .upgrade-name {
+  padding: .5rem;
+  font-weight: 700;
+}
+
+.shop .shop-UI .shop-body .upgrades-row .upgrade .buy-upgrade__button {
+  padding: .5rem;
+  background: green;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .reset-confirm {
@@ -326,6 +464,45 @@ footer ul:last-of-type::before {
             align-items: center;
     gap: 2rem;
   }
+  html body main .shop .shop-UI {
+    gap: 2rem;
+  }
+  html body main .shop .shop-UI .close-shop__button {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  html body main .shop .shop-UI .shop-header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+  }
+  html body main .shop .shop-UI .shop-header .info-section {
+    width: 75%;
+  }
+  html body main .shop .shop-UI .shop-body {
+    gap: 1rem;
+  }
+  html body main .shop .shop-UI .shop-body .upgrades-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+  }
+  html body main .shop .shop-UI .shop-body .upgrades-row .upgrade {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
   html body main .slots-info {
     text-align: center;
   }
@@ -349,6 +526,20 @@ footer ul:last-of-type::before {
 }
 
 @media (max-width: 500px) {
+  html body main .shop .shop-UI {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+  html body main .shop .shop-UI .shop-header .info-section {
+    width: 100%;
+    font-weight: 400px;
+    font-size: .75rem;
+  }
+  html body main .shop .shop-UI .shop-body .upgrades-row .upgrade .upgrade-name {
+    font-weight: 400;
+  }
+  html body main .shop .shop-UI .shop-body .upgrades-row .upgrade .buy-upgrade__button {
+    font-weight: 400;
+  }
   html body main .reset-confirm .reset-buttons {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
