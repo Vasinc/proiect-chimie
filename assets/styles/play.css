@@ -280,7 +280,25 @@ main .buttons .spin-btn {
           align-items: flex-start;
 }
 
-.shop .shop-UI .shop-header .stars-section {
+.shop .shop-UI .shop-header .money-stars-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  gap: 1rem;
+  width: 195px;
+}
+
+.shop .shop-UI .shop-header .money-stars-section .money-section {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.shop .shop-UI .shop-header .money-stars-section .stars-section {
   font-size: 2rem;
   font-weight: 700;
   padding: .1rem .5rem;

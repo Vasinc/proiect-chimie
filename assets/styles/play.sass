@@ -172,18 +172,27 @@ main
             display: flex
             justify-content: space-between
             align-items: flex-start
-            .stars-section
-                font-size: 2rem
-                font-weight: 700
-                padding: .1rem .5rem
-                min-width: 187px
-                height: 56px
-                color: #eeb449
-                background: #fbf1e6
-                border: 4px solid $orange
-                border-radius: .5rem
-                box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, .5)
-                user-select: none
+            .money-stars-section
+                display: flex
+                flex-direction: column-reverse
+                gap: 1rem
+                width: 195px
+                .money-section
+                    text-align: center
+                    font-size: 1.25rem
+                    font-weight: 700
+                .stars-section
+                    font-size: 2rem
+                    font-weight: 700
+                    padding: .1rem .5rem
+                    min-width: 187px
+                    height: 56px
+                    color: #eeb449
+                    background: #fbf1e6
+                    border: 4px solid $orange
+                    border-radius: .5rem
+                    box-shadow: 4px 4px 8px 3px rgba(0, 0, 0, .5)
+                    user-select: none
             .info-section
                 width: 50%
                 max-width: 400px

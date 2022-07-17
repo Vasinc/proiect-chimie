@@ -10,6 +10,11 @@ const resetBtn = document.querySelector('.reset-btn');
 const shopBtn = document.querySelector('.shop-btn');
 const closeShopBtn = document.querySelector('.close-shop__button');
 const shop = document.querySelector('.shop');
+const upgrades = document.querySelectorAll('.upgrade');
+const starsSection = document.querySelector('.stars-section');
+
+// ★
+
 
 const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
@@ -22,6 +27,8 @@ let midVals;
 let prvSlot = [0, 0, 0];
 let prvSlot1 = [0, 0, 0];
 let prvSlot2 = [0, 0, 0];
+let upgradesLevel = [0, 0, 0, 0];
+let upgradesCost = [1000, 20000, 500, 2500];
 
 spinBtn.style.background = `rgb(255, 0, 0)`;
 
@@ -31,7 +38,9 @@ betVal = 10;
 updateBet();
 
 function updateMoney() {
-    document.querySelector('.money').textContent = moneyVal;
+    document.querySelectorAll('.money').forEach(money => {
+        money.textContent = moneyVal;
+    });
 };
 
 function updateBet() {
@@ -47,6 +56,27 @@ window.onload = function () {
         betVal = parseInt(localStorage.getItem('betValue'));
         updateBet();
     }
+    if (localStorage.getItem('upgrLevels')) {
+        upgradesLevel = JSON.parse(localStorage.getItem('upgrLevels'));
+        for(let i=0; i<upgrades.length; i++){
+            upgrades[i].querySelector('.upgrade-level').textContent = upgradesLevel[i];
+        }
+    }
+    if (localStorage.getItem('upgrCosts')) {
+        upgradesCost = JSON.parse(localStorage.getItem('upgrCosts'));
+        for(let i=0; i<upgrades.length; i++){
+            upgrades[i].querySelector('.upgrade-price').textContent = upgradesCost[i];
+        }
+    }
+    if(localStorage.getItem('stars')) {
+        starsSection.textContent = JSON.parse(localStorage.getItem('stars'));
+    }
+    upgrades.forEach(upgrade => {
+        if (upgrade.querySelector('.upgrade-price').textContent == 'MAXED') {
+            upgrade.querySelector('.buy-upgrade__button').style.background = 'rgb(255, 0, 0)';
+            upgrade.querySelector('.buy-upgrade__button').style.cursor = 'not-allowed'
+        }
+    })
 }
 
 
@@ -220,3 +250,54 @@ closeShopBtn.addEventListener('click', () => {
     shop.classList.remove('display-block');
     document.body.style.overflow = 'visible';
 })
+
+shop.addEventListener('click', event => {
+    if (event.target.className == 'buy-upgrade__button' || event.target.className == 'upgrade-price') {
+        const buyUpgrade = event.target;
+        let upgradeLevel = (event.target.className == 'buy-upgrade__button') ? parseInt(event.target.previousElementSibling.previousElementSibling.querySelector('.upgrade-level').textContent) : parseInt(event.target.parentElement.previousElementSibling.previousElementSibling.querySelector('.upgrade-level').textContent);
+        const upgradeMaxLevel = (event.target.className == 'buy-upgrade__button') ? parseInt(event.target.previousElementSibling.previousElementSibling.querySelector('.upgrade-max-level').textContent) : parseInt(event.target.parentElement.previousElementSibling.previousElementSibling.querySelector('.upgrade-max-level').textContent);
+        let upgradePrice = (event.target.className == 'buy-upgrade__button') ? parseInt(buyUpgrade.querySelector(".upgrade-price").textContent) : parseInt(event.target.textContent);
+        // check if u can upgrade or not
+        if (moneyVal < upgradePrice ||  upgradeLevel >= upgradeMaxLevel) return;
+        moneyVal = moneyVal - upgradePrice;
+        updateMoney();
+        localStorage.setItem('Money', moneyVal);
+        if (upgradeLevel == upgradeMaxLevel - 1) {
+            starsSection.textContent = `${starsSection.textContent} ★`
+            localStorage.setItem('stars', JSON.stringify(starsSection.textContent));
+        }
+        upgradeLevel = Math.trunc(upgradeLevel + 1);
+        upgradePrice = upgradePrice + Math.trunc(upgradePrice * (5 / upgradeMaxLevel));
+        if(upgradeLevel == upgradeMaxLevel) {
+            if(buyUpgrade.className == 'buy-upgrade__button') {
+                buyUpgrade.style.background = 'rgb(255, 0, 0)';
+                buyUpgrade.style.cursor = 'not-allowed'
+            } else {
+                buyUpgrade.parentNode.style.background = 'rgb(255, 0, 0)';
+                buyUpgrade.parentNode.style.cursor = 'not-allowed';
+            }
+            upgradePrice = 'MAXED';
+        }
+        for(let i=0; i<upgrades.length; i++) {
+            if (upgrades[i] == event.target.parentNode || upgrades[i] == event.target.parentNode.parentNode) {
+                upgradesLevel[i] = upgradeLevel;
+                upgradesCost[i] = upgradePrice;
+                localStorage.setItem('upgrLevels', JSON.stringify(upgradesLevel));
+                localStorage.setItem('upgrCosts', JSON.stringify(upgradesCost));
+            }
+        }
+        // update UI
+        if (event.target.className == 'buy-upgrade__button') {
+            event.target.previousElementSibling.previousElementSibling.querySelector('.upgrade-level').textContent = upgradeLevel;
+            buyUpgrade.querySelector(".upgrade-price").textContent = upgradePrice;
+        } else { 
+            event.target.parentElement.previousElementSibling.previousElementSibling.querySelector('.upgrade-level').textContent = upgradeLevel;
+            buyUpgrade.textContent = upgradePrice;
+        }
+        console.log(`Upgrade level is: ${upgradeLevel} / ${upgradeMaxLevel} and the next upgrade is ${upgradePrice}$`);
+        console.log(upgradesLevel);
+        console.log(upgradesCost);
+    } else {
+        return;
+    }
+});
