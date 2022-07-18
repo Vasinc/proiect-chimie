@@ -1,3 +1,5 @@
+// i know that the code is very bad and repeats a ton.. maybe when i'll have more experience i'll recheck this project
+
 const slots = document.querySelectorAll(".slot-item");
 const spinBtn = document.querySelector('.spin-btn');
 const decreaseBet = document.querySelector('.decrease-bet');
@@ -11,15 +13,20 @@ const shopBtn = document.querySelector('.shop-btn');
 const closeShopBtn = document.querySelector('.close-shop__button');
 const shop = document.querySelector('.shop');
 const upgrades = document.querySelectorAll('.upgrade');
+const upgradesInfo = document.querySelectorAll('.upgrade-level-info');
 const starsSection = document.querySelector('.stars-section');
-
-// ★
-
+const infoBtn = document.querySelector('.info-btn');
+const infoSection = document.querySelector('.main-info-section');
 
 const SLOTS_ASSETS = ['orange', 'lemon', 'cherry', 'plum', 'melon', 'bell', 'bar', 'seven'];
 
 let moneyVal = parseInt(document.querySelector('.money').textContent);
 let betVal = parseInt(document.querySelector('.bet-val').textContent);
+let multiplier = parseInt(document.querySelector('.multiplier-multiply').textContent);
+let sevenChance = parseInt(document.querySelector('.seven-chance').textContent);
+let doubleChance = parseInt(document.querySelector('.double-chance').textContent);
+let spinFaster = parseInt(document.querySelector('.spin-faster').textContent);
+let sevensLeft = parseInt(document.querySelector('.row-seven-left').textContent);
 let isSpinning = false;
 let randomSpins;
 let auto_slots;
@@ -28,9 +35,10 @@ let prvSlot = [0, 0, 0];
 let prvSlot1 = [0, 0, 0];
 let prvSlot2 = [0, 0, 0];
 let upgradesLevel = [0, 0, 0, 0];
-let upgradesCost = [1000, 20000, 500, 2500];
+let upgradesCost = [1000, 99999999, 500, 2500];
 
 spinBtn.style.background = `rgb(255, 0, 0)`;
+
 
 moneyVal = 1000;
 updateMoney();
@@ -60,7 +68,16 @@ window.onload = function () {
         upgradesLevel = JSON.parse(localStorage.getItem('upgrLevels'));
         for(let i=0; i<upgrades.length; i++){
             upgrades[i].querySelector('.upgrade-level').textContent = upgradesLevel[i];
+            upgradesInfo[i].textContent = upgradesLevel[i];
         }
+        multiplier = (1 + (upgradesLevel[0] * 0.05)).toFixed(2);
+        document.querySelector('.multiplier-multiply').textContent = multiplier;
+
+        doubleChance = doubleChance + (upgradesLevel[2] * 2)
+        document.querySelector('.double-chance').textContent = doubleChance;
+
+        spinFaster = upgradesLevel[3] * 10
+        document.querySelector('.spin-faster').textContent = spinFaster;
     }
     if (localStorage.getItem('upgrCosts')) {
         upgradesCost = JSON.parse(localStorage.getItem('upgrCosts'));
@@ -77,27 +94,30 @@ window.onload = function () {
             upgrade.querySelector('.buy-upgrade__button').style.cursor = 'not-allowed'
         }
     })
+    if(localStorage.getItem('sevens')){
+        sevensLeft = parseInt(localStorage.getItem('sevens'));
+        document.querySelector('.row-seven-left').textContent = sevensLeft;
+    }
 }
-
 
 function changeSlots () {
     for(let i=0; i<3; i++) {
         if (i == 0) {
-            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            rndNum = Math.trunc(Math.random() * (SLOTS_ASSETS.length));
             prvSlot.unshift(rndNum);
             prvSlot.pop;
             slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[0]]}_slots.jpg')`;
             slots[i + 3].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[1]]}_slots.jpg')`;
             slots[i + 6].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot[2]]}_slots.jpg')`;
         } else if ( i == 1 ) {
-            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            rndNum = Math.trunc(Math.random() * (SLOTS_ASSETS.length));
             prvSlot1.unshift(rndNum);
             prvSlot1.pop;
             slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[0]]}_slots.jpg')`;
             slots[i + 3].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[1]]}_slots.jpg')`;
             slots[i + 6].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot1[2]]}_slots.jpg')`;
         } else {
-            rndNum = Math.trunc(Math.random() * SLOTS_ASSETS.length);
+            rndNum = Math.trunc(Math.random() * (SLOTS_ASSETS.length));
             prvSlot2.unshift(rndNum);
             prvSlot2.pop;
             slots[i].style.backgroundImage = `url('./assets/slots_assets/${SLOTS_ASSETS[prvSlot2[0]]}_slots.jpg')`;
@@ -110,11 +130,16 @@ function changeSlots () {
     spinBtn.style.background = 'grey';
     spinBtn.style.cursor = 'not-allowed';
     if (randomSpins == 0) {
+        let doubleBet = 1;
         midVals = [prvSlot[1], prvSlot1[1], prvSlot2[1]];
         console.log(midVals);
-        moneyVal = moneyVal - betVal;
-        updateMoney();
-        console.log(moneyVal);
+        let rndDoubleChance = Math.floor(Math.random() * 100)
+        console.log(`rndNum: ${rndDoubleChance}`);
+        if(doubleChance >= rndDoubleChance) {
+            doubleBet = 2;
+        } else {
+            doubleBet = 1;
+        }
         for(let i=0; i<1; i++) {
             console.log(midVals[i]);
             console.log(midVals[i+1]);
@@ -122,41 +147,53 @@ function changeSlots () {
             if ( midVals[i] == midVals[i+1] && midVals[i+1] == midVals[i+2]) {
                 switch (midVals[i]) {
                     case 0:
-                        moneyVal = moneyVal + betVal * 20;
+                        moneyVal = moneyVal + (betVal * 20)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 1:
-                        moneyVal = moneyVal + betVal * 30;
+                        moneyVal = moneyVal + (betVal * 30)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 2:
-                        moneyVal = moneyVal + betVal * 50;
+                        moneyVal = moneyVal + (betVal * 50)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 3:
-                        moneyVal = moneyVal + betVal * 70;
+                        moneyVal = moneyVal + (betVal * 70)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 4:
-                        moneyVal = moneyVal + betVal * 85;
+                        moneyVal = moneyVal + (betVal * 85)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 5:
-                        moneyVal = moneyVal + betVal * 100;
+                        moneyVal = moneyVal + (betVal * 100)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 6:
-                        moneyVal = moneyVal + betVal * 150;
+                        moneyVal = moneyVal + (betVal * 150)*multiplier * doubleBet;
                         updateMoney();
                         break;
                     case 7:
-                        moneyVal = moneyVal + betVal * 300;
+                        moneyVal = moneyVal + (betVal * 300)*multiplier * doubleBet;
                         updateMoney();
+                        if (sevensLeft == 1) {
+                            sevensLeft = sevensLeft - 1;
+                            document.querySelector('.row-seven-left').textContent = sevensLeft;
+                            starsSection.textContent = `${starsSection.textContent} ★`
+                            localStorage.setItem('stars', JSON.stringify(starsSection.textContent));
+                        }
+                        if(sevensLeft >= 1) {
+                            sevensLeft = sevensLeft - 1;
+                            document.querySelector('.row-seven-left').textContent = sevensLeft;
+                            console.log('succes');
+                        }
+                        localStorage.setItem('sevens', sevensLeft);
                         break;
                 }
                 console.log('se repeta de trei ori')
             } else if (  midVals[i] == midVals[i+1] || midVals[i] == midVals[i+2] || midVals[i+1] == midVals[i+2] ) {
-                moneyVal = moneyVal + betVal * 2;
+                moneyVal = moneyVal + (betVal * 2)*multiplier * doubleBet;
                 updateMoney();
                 console.log('se repeta de doua ori');
             } else {
@@ -179,7 +216,9 @@ function spinSlots () {
         randomSpins = Math.trunc(Math.random() * 15 + 7);
     if( isSpinning == false && (moneyVal - betVal) >= 0) {
         isSpinning = true;
-        auto_slots = setInterval(changeSlots, 150);
+        auto_slots = setInterval(changeSlots, 150 - (7.5 * upgradesLevel[3]));
+        moneyVal = moneyVal - betVal;
+        updateMoney();
     } else {
         return;
     }
@@ -217,6 +256,7 @@ playBackdrop.addEventListener('click', () => {
     playBackdrop.classList.remove('display-block');
     resetUI.classList.remove('display-flex');
     shop.classList.remove('display-block');
+    infoSection.classList.remove('display-block');
     document.body.style.overflow = 'visible';
 })
 
@@ -232,10 +272,33 @@ confirmResetBtn.addEventListener('click', () => {
     document.body.style.overflow = 'visible';
     moneyVal = 1000;
     betVal = 10;
+    upgradesLevel = [0, 0, 0, 0];
+    for(let i=0; i<upgrades.length; i++){
+        upgrades[i].querySelector('.upgrade-level').textContent = upgradesLevel[i];
+        upgradesInfo[i].textContent = upgradesLevel[i];
+    }
+    upgradesCost = [1000, 99999999, 500, 2500];
+    for(let i=0; i<upgrades.length; i++){
+        upgrades[i].querySelector('.upgrade-price').textContent = upgradesCost[i];
+    }
+
+    multiplier = (1 + (upgradesLevel[0] * 0.05)).toFixed(2);
+    document.querySelector('.multiplier-multiply').textContent = multiplier;
+
+    doubleChance = (upgradesLevel[2] * 2)
+    document.querySelector('.double-chance').textContent = doubleChance;
+
+    spinFaster = upgradesLevel[3] * 10
+    document.querySelector('.spin-faster').textContent = spinFaster;
+
     updateMoney();
     updateBet();
     localStorage.removeItem('Money');
     localStorage.removeItem('betValue');
+    localStorage.removeItem('stars');
+    localStorage.removeItem('sevens');
+    localStorage.removeItem('upgrCosts');
+    localStorage.removeItem('upgrLevels');
 })
 
 shopBtn.addEventListener('click', () => {
@@ -281,11 +344,21 @@ shop.addEventListener('click', event => {
         for(let i=0; i<upgrades.length; i++) {
             if (upgrades[i] == event.target.parentNode || upgrades[i] == event.target.parentNode.parentNode) {
                 upgradesLevel[i] = upgradeLevel;
+                upgradesInfo[i].textContent = upgradeLevel;
                 upgradesCost[i] = upgradePrice;
                 localStorage.setItem('upgrLevels', JSON.stringify(upgradesLevel));
                 localStorage.setItem('upgrCosts', JSON.stringify(upgradesCost));
             }
         }
+        //update INFO SECTION 
+        multiplier = (1 + (upgradesLevel[0] * 0.05)).toFixed(2);
+        document.querySelector('.multiplier-multiply').textContent = multiplier;
+
+        doubleChance = upgradesLevel[2] * 2
+        document.querySelector('.double-chance').textContent = doubleChance;
+
+        spinFaster = upgradesLevel[3] * 10
+        document.querySelector('.spin-faster').textContent = spinFaster;
         // update UI
         if (event.target.className == 'buy-upgrade__button') {
             event.target.previousElementSibling.previousElementSibling.querySelector('.upgrade-level').textContent = upgradeLevel;
@@ -301,3 +374,10 @@ shop.addEventListener('click', event => {
         return;
     }
 });
+
+infoBtn.addEventListener('click', () => {
+    playBackdrop.classList.add('display-block');
+    infoSection.classList.add('display-block');
+    document.body.style.overflow = 'hidden';
+    playBackdrop.scrollIntoView();
+})
